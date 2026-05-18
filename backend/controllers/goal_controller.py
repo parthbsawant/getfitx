@@ -21,6 +21,7 @@ def set_goal():
         goal_weight = data.get("goalWeight")
         deadline_days = data.get("deadlineDays")
         gender = data.get("gender")
+        activity_level = data.get("activityLevel")
 
         # STEP 1 — Calculate BMR
 
@@ -44,7 +45,25 @@ def set_goal():
 
         # STEP 2 — Maintenance Calories
 
-        maintenance_calories = bmr * 1.2
+        # Activity multipliers
+
+        activity_multipliers = {
+
+            "sedentary": 1.2,
+            "light": 1.375,
+            "moderate": 1.55,
+            "active": 1.725,
+            "athlete": 1.9
+        }
+
+        # Get multiplier
+        multiplier = activity_multipliers.get(
+            activity_level.lower(),
+            1.2
+        )
+
+        # Maintenance calories
+        maintenance_calories = bmr * multiplier
 
         # STEP 3 — Required Deficit
 
@@ -79,7 +98,8 @@ def set_goal():
                     "bmr": round(bmr, 2),
                     "maintenanceCalories": round(maintenance_calories, 2),
                     "requiredDeficit": round(required_deficit, 2),
-                    "targetCalories": round(target_calories, 2)
+                    "targetCalories": round(target_calories, 2),
+                    "activityLevel": activity_level
                 }
             }
         )
