@@ -3,6 +3,7 @@ from flask_jwt_extended import JWTManager
 from dotenv import load_dotenv
 from config.db import db
 from routes.auth_routes import auth_bp
+from routes.goal_routes import goal_bp
 import os
 
 # Load environment variables
@@ -18,6 +19,7 @@ jwt = JWTManager(app)
 
 # Register Blueprint
 app.register_blueprint(auth_bp)
+app.register_blueprint(goal_bp)
 
 @app.route('/')
 @app.route('/')
