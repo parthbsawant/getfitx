@@ -27,3 +27,11 @@ def delete_food_log(food_id):
     return food_collection.delete_one({
         "_id": ObjectId(food_id)
     })
+
+def get_foods_by_user(user_id):
+
+    return list(
+        food_collection.find({
+            "userId": user_id
+        })
+    )
