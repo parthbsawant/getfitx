@@ -1,0 +1,361 @@
+[
+  {
+    "foodId": "IND0001",
+    "foodName": "Poha",
+    "aliases": [
+      "kanda poha",
+      "pohe",
+      "flattened rice"
+    ],
+    "category": "breakfast",
+    "cuisineType": "Indian",
+    "region": [
+      "Maharashtra",
+      "Madhya Pradesh"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "100g",
+        "grams": 100,
+        "calories": 130,
+        "protein": 2.5,
+        "carbs": 25,
+        "fats": 3
+      },
+      {
+        "name": "1 bowl",
+        "grams": 180,
+        "calories": 234,
+        "protein": 4.5,
+        "carbs": 45,
+        "fats": 5
+      }
+    ],
+    "tags": [
+      "breakfast",
+      "vegetarian",
+      "light-food"
+    ],
+    "glycemicIndex": 65,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0002",
+    "foodName": "Chapati",
+    "aliases": [
+      "roti",
+      "phulka",
+      "fulka"
+    ],
+    "category": "main-course",
+    "cuisineType": "Indian",
+    "region": [
+      "North India",
+      "Maharashtra"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "1 piece",
+        "grams": 40,
+        "calories": 120,
+        "protein": 3,
+        "carbs": 20,
+        "fats": 3
+      },
+      {
+        "name": "2 pieces",
+        "grams": 80,
+        "calories": 240,
+        "protein": 6,
+        "carbs": 40,
+        "fats": 6
+      }
+    ],
+    "tags": [
+      "wheat",
+      "vegetarian",
+      "daily-food"
+    ],
+    "glycemicIndex": 62,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0003",
+    "foodName": "Plain Rice",
+    "aliases": [
+      "rice",
+      "chawal",
+      "steamed rice"
+    ],
+    "category": "main-course",
+    "cuisineType": "Indian",
+    "region": [
+      "All India"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "100g",
+        "grams": 100,
+        "calories": 130,
+        "protein": 2.7,
+        "carbs": 28,
+        "fats": 0.3
+      },
+      {
+        "name": "1 bowl",
+        "grams": 180,
+        "calories": 234,
+        "protein": 4.8,
+        "carbs": 50,
+        "fats": 0.5
+      }
+    ],
+    "tags": [
+      "rice",
+      "vegetarian",
+      "daily-food"
+    ],
+    "glycemicIndex": 73,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0004",
+    "foodName": "Dal Tadka",
+    "aliases": [
+      "dal",
+      "lentil curry",
+      "dal fry"
+    ],
+    "category": "main-course",
+    "cuisineType": "Indian",
+    "region": [
+      "All India"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "1 bowl",
+        "grams": 200,
+        "calories": 180,
+        "protein": 9,
+        "carbs": 22,
+        "fats": 6
+      }
+    ],
+    "tags": [
+      "protein",
+      "vegetarian",
+      "lentils"
+    ],
+    "glycemicIndex": 32,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0005",
+    "foodName": "Idli",
+    "aliases": [
+      "idlis"
+    ],
+    "category": "breakfast",
+    "cuisineType": "South Indian",
+    "region": [
+      "Tamil Nadu",
+      "Karnataka"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "1 piece",
+        "grams": 40,
+        "calories": 58,
+        "protein": 2,
+        "carbs": 12,
+        "fats": 0.4
+      },
+      {
+        "name": "2 pieces",
+        "grams": 80,
+        "calories": 116,
+        "protein": 4,
+        "carbs": 24,
+        "fats": 0.8
+      }
+    ],
+    "tags": [
+      "south-indian",
+      "fermented",
+      "light-food"
+    ],
+    "glycemicIndex": 77,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0006",
+    "foodName": "Masala Dosa",
+    "aliases": [
+      "dosa",
+      "masala dosa"
+    ],
+    "category": "breakfast",
+    "cuisineType": "South Indian",
+    "region": [
+      "Karnataka",
+      "Tamil Nadu"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "1 piece",
+        "grams": 150,
+        "calories": 387,
+        "protein": 8,
+        "carbs": 45,
+        "fats": 18
+      }
+    ],
+    "tags": [
+      "south-indian",
+      "crispy",
+      "breakfast"
+    ],
+    "glycemicIndex": 74,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0007",
+    "foodName": "Upma",
+    "aliases": [
+      "rava upma",
+      "suji upma"
+    ],
+    "category": "breakfast",
+    "cuisineType": "South Indian",
+    "region": [
+      "Karnataka",
+      "Tamil Nadu"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "1 bowl",
+        "grams": 180,
+        "calories": 250,
+        "protein": 6,
+        "carbs": 38,
+        "fats": 8
+      }
+    ],
+    "tags": [
+      "breakfast",
+      "vegetarian",
+      "semolina"
+    ],
+    "glycemicIndex": 66,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0008",
+    "foodName": "Paneer Butter Masala",
+    "aliases": [
+      "paneer curry",
+      "pbm"
+    ],
+    "category": "main-course",
+    "cuisineType": "North Indian",
+    "region": [
+      "Punjab"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "1 bowl",
+        "grams": 250,
+        "calories": 420,
+        "protein": 16,
+        "carbs": 14,
+        "fats": 34
+      }
+    ],
+    "tags": [
+      "paneer",
+      "rich-food",
+      "vegetarian"
+    ],
+    "glycemicIndex": 40,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0009",
+    "foodName": "Chicken Biryani",
+    "aliases": [
+      "biryani",
+      "dum biryani"
+    ],
+    "category": "main-course",
+    "cuisineType": "Indian",
+    "region": [
+      "Hyderabad",
+      "Lucknow"
+    ],
+    "veg": false,
+    "servingOptions": [
+      {
+        "name": "1 plate",
+        "grams": 350,
+        "calories": 650,
+        "protein": 28,
+        "carbs": 72,
+        "fats": 28
+      }
+    ],
+    "tags": [
+      "rice",
+      "non-veg",
+      "high-calorie"
+    ],
+    "glycemicIndex": 72,
+    "source": "getfitx_db"
+  },
+
+  {
+    "foodId": "IND0010",
+    "foodName": "Samosa",
+    "aliases": [
+      "veg samosa"
+    ],
+    "category": "snacks",
+    "cuisineType": "Indian",
+    "region": [
+      "All India"
+    ],
+    "veg": true,
+    "servingOptions": [
+      {
+        "name": "1 piece",
+        "grams": 100,
+        "calories": 262,
+        "protein": 4,
+        "carbs": 31,
+        "fats": 13
+      }
+    ],
+    "tags": [
+      "fried",
+      "snack",
+      "street-food"
+    ],
+    "glycemicIndex": 75,
+    "source": "getfitx_db"
+  }
+]

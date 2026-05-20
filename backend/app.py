@@ -5,7 +5,7 @@ from config.db import db
 from routes.auth_routes import auth_bp
 from routes.goal_routes import goal_bp
 from routes.food_routes import food_bp
-
+from routes.nutrition_routes import nutrition_bp
 import os
 
 # Load environment variables
@@ -23,6 +23,7 @@ jwt = JWTManager(app)
 app.register_blueprint(auth_bp)
 app.register_blueprint(goal_bp)
 app.register_blueprint(food_bp, url_prefix="/api/food")
+app.register_blueprint(nutrition_bp,url_prefix="/api/nutrition")
 
 @app.route('/')
 @app.route('/')
