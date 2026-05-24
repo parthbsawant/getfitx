@@ -35,3 +35,18 @@ def get_foods_by_user(user_id):
             "userId": user_id
         })
     )
+
+def get_all_food_dates(user_id):
+
+    foods = list(
+        food_collection.find(
+            {
+                "userId": user_id
+            },
+            {
+                "consumedAt": 1
+            }
+        )
+    )
+
+    return foods

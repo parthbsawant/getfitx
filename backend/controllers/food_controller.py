@@ -6,8 +6,13 @@ from models.food_model import (
     delete_food_log,
     get_foods_by_user
 )
+from models.food_model import (
+    get_all_food_dates
+)
 from config.db import db
+import pytz
 
+IST = pytz.timezone("Asia/Kolkata")
 users_collection = db["users"]
 
 def add_food():
@@ -25,7 +30,7 @@ def add_food():
             "fats": data.get("fats", 0),
             "quantity": data.get("quantity", ""),
             "mealType": data.get("mealType"),
-            "consumedAt": datetime.utcnow()
+            "consumedAt": datetime.now(IST)
         }
 
         result = create_food_log(food_data)
@@ -159,11 +164,19 @@ def get_dashboard_data(user_id):
             for food in foods
         )
 
-        # FIND USER
-        # user = users_collection.find_one({
-        #     "_id": user_id
-        # })
+        # GET TODAY'S EXERCISE BURNED CALORIES
+        from models.exercise_model import get_exercises_by_user_and_date as get_exercises
+        exercises = get_exercises(
+            user_id,
+            start_date,
+            end_date
+        )
+        calories_burned = sum(
+            ex.get("caloriesBurned", 0)
+            for ex in exercises
+        )
 
+        # FIND USER
         user = users_collection.find_one({
             "email": user_id
         })
@@ -188,10 +201,13 @@ def get_dashboard_data(user_id):
             0
         )
 
+        # NET CONSUMED CALORIES
+        net_calories = consumed_calories - calories_burned
+
         # REMAINING CALORIES
         remaining_calories = (
             target_calories
-            - consumed_calories
+            - net_calories
         )
 
         # SURPLUS CHECK
@@ -214,6 +230,12 @@ def get_dashboard_data(user_id):
 
                 "consumedCalories":
                     round(consumed_calories, 2),
+
+                "caloriesBurned":
+                    round(calories_burned, 2),
+
+                "netCalories":
+                    round(net_calories, 2),
 
                 "remainingCalories":
                     round(remaining_calories, 2),
@@ -287,6 +309,91 @@ def get_weekly_analytics(user_id):
             "success": True,
             "weeklyAnalytics": analytics_data
 
+        }), 200
+
+    except Exception as e:
+
+        return jsonify({
+            "success": False,
+            "message": str(e)
+        }), 500
+    
+def get_streak_data(user_id):
+
+    try:
+
+        foods = get_all_food_dates(user_id)
+
+        if not foods:
+
+            return jsonify({
+                "success": True,
+                "currentStreak": 0,
+                "longestStreak": 0
+            }), 200
+
+        # UNIQUE DATES
+        unique_dates = set()
+
+        for food in foods:
+
+            consumed_date = food.get(
+                "consumedAt"
+            )
+
+            if consumed_date:
+
+                unique_dates.add(
+                    consumed_date.date()
+                )
+
+        sorted_dates = sorted(unique_dates)
+
+        current_streak = 1
+        longest_streak = 1
+
+        for i in range(1, len(sorted_dates)):
+
+            difference = (
+                sorted_dates[i]
+                - sorted_dates[i - 1]
+            ).days
+
+            if difference == 1:
+
+                current_streak += 1
+
+                longest_streak = max(
+                    longest_streak,
+                    current_streak
+                )
+
+            elif difference > 1:
+
+                current_streak = 1
+
+        # CHECK IF TODAY IS INCLUDED
+        from datetime import datetime
+
+        from datetime import datetime
+
+        today = datetime.utcnow().date()
+
+        last_logged_date = sorted_dates[-1]
+
+        difference = (
+            today - last_logged_date
+        ).days
+
+        # ALLOW TODAY OR YESTERDAY
+        if difference > 1:
+
+            current_streak = 0
+
+        return jsonify({
+            "success": True,
+            "currentStreak": current_streak,
+            "longestStreak": longest_streak
         }), 200
 
     except Exception as e:

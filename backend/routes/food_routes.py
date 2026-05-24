@@ -5,7 +5,8 @@ from controllers.food_controller import (
     get_today_foods,
     delete_food,
     get_dashboard_data,
-    get_weekly_analytics
+    get_weekly_analytics,
+    get_streak_data
 )
 
 
@@ -22,3 +23,4 @@ food_bp.route("/delete/<food_id>", methods=["DELETE"])(delete_food)
 food_bp.route("/dashboard/<user_id>", methods=["GET"])(get_dashboard_data)
 # WEEKLY ANALYTICS
 food_bp.route("/weekly/<user_id>",methods=["GET"])(get_weekly_analytics)
+food_bp.route("/streak/<user_id>",methods=["GET"])(get_streak_data)
